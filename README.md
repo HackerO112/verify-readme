@@ -6,7 +6,7 @@
 
 **Stop Documentation Rot. Start Verifying.**
 
-[![Website](https://img.shields.io/badge/website-vericode-blue?style=for-the-badge&logo=vercel)](https://verify-readme.vercel.app/)
+[![Website](https://img.shields.io/badge/website-vericode-blue?style=for-the-badge&logo=vercel)](z.ai)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-orange?style=for-the-badge)](https://github.com/yourusername/vericode/releases)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/vericode/ci.yml?branch=main&style=for-the-badge)](https://github.com/yourusername/vericode/actions)
