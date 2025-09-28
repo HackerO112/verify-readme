@@ -143,14 +143,6 @@ npx prisma db push
 npm run dev
 ```
 
-## 📸 Screenshots
-
-<!-- Add screenshots or GIFs here -->
-
-| Dashboard | Report View | Settings |
-|-----------|-------------|----------|
-| ![Dashboard](https://via.placeholder.com/400x300?text=Dashboard+Screenshot) | ![Report](https://via.placeholder.com/400x300?text=Report+Screenshot) | ![Settings](https://via.placeholder.com/400x300?text=Settings+Screenshot) |
-
 ## 💻 Technology Stack
 
 VeriCode is built with a modern, robust, and scalable tech stack:
@@ -350,7 +342,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by the VeriCode team**
 
-[![Twitter](https://img.shields.io/badge/Twitter-@vericode-blue?style=for-the-badge&logo=twitter)](https://twitter.com/vericode)
-[![Discord](https://img.shields.io/badge/Discord-Join-purple?style=for-the-badge&logo=discord)](https://discord.gg/vericode)
+[![x](https://upload.wikimedia.org/wikipedia/commons/b/b7/X_logo.jpg-@thinkgenious-black?style=for-the-badge&logo=twitter)](https://twitter.com/vericode)
+[![Discord](https://img.shields.io/badge/Discord-Join-purple?style=for-the-badge&logo=discord)](https://discord.gg/)
 
 </div>
