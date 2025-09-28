@@ -340,7 +340,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by the VeriCode team**
+**Made with Z.ai by the me**
 
 [![X Follow](https://img.shields.io/badge/@thinkgenious-black?style=for-the-badge&logo=x)](https://x.com/@thinkgenious)
 [![Discord](https://img.shields.io/badge/Discord-Join-purple?style=for-the-badge&logo=discord)](https://discord.gg/WNC22caS)
