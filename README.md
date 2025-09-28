@@ -1,3 +1,141 @@
-Autonomous GitHub Push Script (push_to_github.sh)A fully autonomous bash script that prepares your local project and pushes it to a new or existing GitHub repository. This tool is designed to be a fire-and-forget solution for initializing a project on GitHub, handling everything from dependency checks to the final push.It simplifies the repetitive process of setting up a new repository, making it perfect for developers who want to get their code on GitHub quickly and without manual steps.✨ FeaturesFully Autonomous: Requires zero manual configuration outside of running the script.Dependency Checks: Automatically verifies if git and the GitHub CLI (gh) are installed.Auto-Installation: If the GitHub CLI (gh) is not found, it attempts to install it using the system's package manager (supports macOS via Homebrew, and Debian/Ubuntu/Fedora/CentOS on Linux).Authentication Handling: Checks if you're logged into GitHub and prompts you to log in if you aren't.Git Identity Setup: If your local Git user.name and user.email are not configured, it will ask for them and set them for the current repository.Smart Repository Handling:Creates a new public repository on your GitHub account if one doesn't exist.Pushes to an existing repository if a repository with the same name is found.Effortless Commits: Automatically adds all project files and creates an initial commit.User-Friendly: Provides clear, colored output for each step of the process.🚀 Getting StartedGetting started is as simple as running the script in your project's root directory.PrerequisitesA terminal or command-line interface.A GitHub account.sudo or administrative privileges may be required for the one-time installation of the GitHub CLI.UsageDownload the Script:Save the script in your project's root directory as push_to_github.sh.Make it Executable:Open your terminal, navigate to your project directory, and run the following command to give the script execution permissions:chmod +x push_to_github.sh
-Run the Script:Execute the script from your project's root directory. Do not use sudo../push_to_github.sh
-The script will then guide you through the process, asking for your GitHub username, desired repository name, and Git identity if needed.⚙️ How It WorksThe script performs the following steps in order:Checks for Git and GitHub CLI (gh): Ensures the necessary tools are available.Authenticates with GitHub: Uses gh auth status to verify your login session.Collects Repository Info: Prompts you for your GitHub username and the new repository's name.Initializes Git: Runs git init if the project is not already a Git repository.Configures Git Identity: Checks git config and prompts for your name and email if they are not set.Commits Files: Stages all files with git add . and creates a commit.Creates & Pushes to GitHub: Uses gh repo create to make a new repository and push your code, or updates the remote and pushes if the repository already exists.🤝 ContributingContributions are welcome! If you have ideas for improvements or find a bug, please feel free to open an issue or submit a pull request.Fork the repository.Create a new branch: git checkout -b feature/your-feature-nameMake your changes.Commit your changes: git commit -m "Add some great feature"Push to the branch: git push origin feature/your-feature-nameOpen a pull request.📜 LicenseThis project is open source and available under the MIT License.
+# 🚀 Welcome to Z.ai Code Scaffold
+
+A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+
+## ✨ Technology Stack
+
+This scaffold provides a robust foundation built with:
+
+### 🎯 Core Framework
+- **⚡ Next.js 15** - The React framework for production with App Router
+- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
+- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+
+### 🧩 UI Components & Styling
+- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
+- **🎯 Lucide React** - Beautiful & consistent icon library
+- **🌈 Framer Motion** - Production-ready motion library for React
+- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
+
+### 📋 Forms & Validation
+- **🎣 React Hook Form** - Performant forms with easy validation
+- **✅ Zod** - TypeScript-first schema validation
+
+### 🔄 State Management & Data Fetching
+- **🐻 Zustand** - Simple, scalable state management
+- **🔄 TanStack Query** - Powerful data synchronization for React
+- **🌐 Axios** - Promise-based HTTP client
+
+### 🗄️ Database & Backend
+- **🗄️ Prisma** - Next-generation Node.js and TypeScript ORM
+- **🔐 NextAuth.js** - Complete open-source authentication solution
+
+### 🎨 Advanced UI Features
+- **📊 TanStack Table** - Headless UI for building tables and datagrids
+- **🖱️ DND Kit** - Modern drag and drop toolkit for React
+- **📊 Recharts** - Redefined chart library built with React and D3
+- **🖼️ Sharp** - High performance image processing
+
+### 🌍 Internationalization & Utilities
+- **🌍 Next Intl** - Internationalization library for Next.js
+- **📅 Date-fns** - Modern JavaScript date utility library
+- **🪝 ReactUse** - Collection of essential React hooks for modern development
+
+## 🎯 Why This Scaffold?
+
+- **🏎️ Fast Development** - Pre-configured tooling and best practices
+- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
+- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
+- **📱 Responsive** - Mobile-first design principles with smooth animations
+- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
+- **🔐 Auth Included** - NextAuth.js for secure authentication flows
+- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
+- **🌍 i18n Ready** - Multi-language support with Next Intl
+- **🚀 Production Ready** - Optimized build and deployment settings
+- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see your application running.
+
+## 🤖 Powered by Z.ai
+
+This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
+
+- **💻 Code Generation** - Generate components, pages, and features instantly
+- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
+- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
+- **📝 Documentation** - Auto-generate comprehensive documentation
+- **🚀 Optimization** - Performance improvements and best practices
+
+Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                 # Next.js App Router pages
+├── components/          # Reusable React components
+│   └── ui/             # shadcn/ui components
+├── hooks/              # Custom React hooks
+└── lib/                # Utility functions and configurations
+```
+
+## 🎨 Available Features & Components
+
+This scaffold includes a comprehensive set of modern web development tools:
+
+### 🧩 UI Components (shadcn/ui)
+- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
+- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
+- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
+- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
+- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
+- **Data Display**: Badge, Avatar, Calendar
+
+### 📊 Advanced Data Features
+- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
+- **Charts**: Beautiful visualizations with Recharts
+- **Forms**: Type-safe forms with React Hook Form + Zod validation
+
+### 🎨 Interactive Features
+- **Animations**: Smooth micro-interactions with Framer Motion
+- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
+- **Theme Switching**: Built-in dark/light mode support
+
+### 🔐 Backend Integration
+- **Authentication**: Ready-to-use auth flows with NextAuth.js
+- **Database**: Type-safe database operations with Prisma
+- **API Client**: HTTP requests with Axios + TanStack Query
+- **State Management**: Simple and scalable with Zustand
+
+### 🌍 Production Features
+- **Internationalization**: Multi-language support with Next Intl
+- **Image Optimization**: Automatic image processing with Sharp
+- **Type Safety**: End-to-end TypeScript with Zod validation
+- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
+
+## 🤝 Get Started with Z.ai
+
+1. **Clone this scaffold** to jumpstart your project
+2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
+3. **Start building** with intelligent code generation and assistance
+4. **Deploy with confidence** using the production-ready setup
+
+---
+
+Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀

@@ -1,0 +1,98 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                    🚀 VeriCode Quick Start 🚀                  ║
+║                                                              ║
+║      No coding experience required - Just follow these steps!  ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+STEP 1: CHOOSE YOUR SETUP METHOD
+────────────────────────────────────────────────────────────────
+
+EASIEST WAY (Recommended):
+• Windows: Double-click "run-vericode.bat"
+• Mac/Linux: Open Terminal, then run "./run-vericode.sh"
+
+MANUAL WAY (If scripts don't work):
+• Open Command Prompt (Windows) or Terminal (Mac/Linux)
+• Type: npm install
+• Type: npm run db:push
+• Type: npm run dev
+
+STEP 2: WAIT FOR SETUP TO COMPLETE
+────────────────────────────────────────────────────────────────
+
+The setup will:
+• Check if Node.js is installed (helps install if needed)
+• Download required files (may take 2-5 minutes)
+• Set up database (takes about 30 seconds)
+• Start the application
+
+You'll see messages like:
+[INFO] Installing dependencies...
+[SUCCESS] Dependencies installed successfully
+[INFO] Starting VeriCode application...
+
+STEP 3: OPEN VERICODE IN YOUR BROWSER
+────────────────────────────────────────────────────────────────
+
+• Open Chrome, Firefox, Safari, or Edge
+• Go to: http://localhost:3000
+• You should see the VeriCode homepage
+
+STEP 4: TRY IT OUT!
+────────────────────────────────────────────────────────────────
+
+• Paste any tutorial URL in the input box
+• Example: https://example.com/tutorial
+• Click "Verify"
+• Wait for the analysis to complete
+• View the results showing which code works and which doesn't
+
+STEP 5: STOP WHEN YOU'RE DONE
+────────────────────────────────────────────────────────────────
+
+• Go back to the terminal window
+• Press Ctrl+C (hold Control and press C)
+• The application will stop
+
+TO START AGAIN LATER:
+────────────────────────────────────────────────────────────────
+
+• Open terminal/command prompt
+• Navigate to the VeriCode folder
+• Type: npm run dev
+
+NEED HELP?
+────────────────────────────────────────────────────────────────
+
+• Check "RUN_INSTRUCTIONS.md" for detailed help
+• Common issues and solutions are included
+• Most problems are related to Node.js installation
+
+TROUBLESHOOTING:
+────────────────────────────────────────────────────────────────
+
+ERROR: "Node.js is not installed"
+• Go to https://nodejs.org/
+• Download and install the LTS version
+• Restart your computer
+• Try again
+
+ERROR: "Permission denied" (Mac/Linux)
+• Open Terminal
+• Type: chmod +x run-vericode.sh
+• Try again
+
+ERROR: "Port 3000 is already in use"
+• Close other web applications
+• Or restart your computer
+• Try again
+
+THAT'S IT! 🎉
+────────────────────────────────────────────────────────────────
+
+You're now ready to use VeriCode to check if tutorial code snippets
+are still valid with the latest dependencies!
+
+Happy coding! 🚀
