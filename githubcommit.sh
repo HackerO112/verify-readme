@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==============================================================================
-#  Autonomous GitHub Push Script
+#  Autonomous GitHub Push Script (v2 - More Robust)
 # ==============================================================================
 #
 #  This script automates the process of pushing a project to a new or
@@ -9,8 +9,8 @@
 #  Git initialization, and the final push.
 #
 #  Usage:
-#    1. Make the script executable: chmod +x push_to_github.sh
-#    2. Run the script: ./push_to_github.sh (No 'sudo' needed)
+#    1. Make the script executable: chmod +x githubcommit.sh
+#    2. Run the script: ./githubcommit.sh (No 'sudo' needed)
 #
 # ==============================================================================
 
@@ -35,49 +35,9 @@ if ! command -v git &> /dev/null; then
     exit 1
 fi
 
-# Check for GitHub CLI (gh) and attempt to install if missing
+# Check for GitHub CLI (gh)
 if ! command -v gh &> /dev/null; then
-    print_message "33" "GitHub CLI ('gh') is not found. It's needed to create a repository automatically. Attempting to install..."
-
-    OS="$(uname -s)"
-    case "${OS}" in
-        Linux*)
-            if command -v apt-get &> /dev/null; then
-                print_message "34" "Debian/Ubuntu detected. Installing GitHub CLI..."
-                (type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)) && \
-                curl -fsSL https://cli.github.com/packages/githubcli-archive-key.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
-                sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg && \
-                echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
-                sudo apt update && \
-                sudo apt install gh -y
-            elif command -v dnf &> /dev/null; then
-                print_message "34" "Fedora/CentOS detected. Installing GitHub CLI..."
-                sudo dnf install -y 'dnf-command(config-manager)' && \
-                sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo && \
-                sudo dnf install -y gh
-            else
-                print_message "31" "Could not detect package manager. Please install GitHub CLI manually from https://cli.github.com/"
-                exit 1
-            fi
-            ;;
-        Darwin*)
-            if ! command -v brew &> /dev/null; then
-                print_message "31" "Homebrew not found. Please install it, then run this script again."
-                exit 1
-            fi
-            print_message "34" "macOS detected. Installing GitHub CLI via Homebrew..."
-            brew install gh
-            ;;
-        *)
-            print_message "31" "Unsupported OS: ${OS}. Please install GitHub CLI manually from https://cli.github.com/"
-            exit 1
-            ;;
-    esac
-fi
-
-# Final check for GitHub CLI
-if ! command -v gh &> /dev/null; then
-    print_message "31" "GitHub CLI installation failed. Please install it manually from https://cli.github.com/ and then run 'gh auth login' before trying again."
+    print_message "31" "Error: GitHub CLI ('gh') is not found. Please install it from https://cli.github.com/ and run 'gh auth login' before trying again."
     exit 1
 fi
 
@@ -163,9 +123,10 @@ if gh repo view "$GITHUB_USER/$REPO_NAME" >/dev/null 2>&1; then
     git push --set-upstream origin main -f # Use -f to force push over existing history if needed
 else
     print_message "34" "--> Creating new public repository '$GITHUB_USER/$REPO_NAME'..."
+    # Proactively remove any existing 'origin' remote to prevent conflicts
+    git remote rm origin 2>/dev/null || true
     gh repo create "$GITHUB_USER/$REPO_NAME" --public --source=. --remote=origin --push
 fi
 
 print_message "32" "🚀 Success! Your code has been pushed to GitHub."
 print_message "32" "You can view your repository at: https://github.com/$GITHUB_USER/$REPO_NAME"
-
