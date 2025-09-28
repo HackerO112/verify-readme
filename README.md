@@ -1,6 +1,6 @@
 
 
-# <div align="center"><img src="public/logo.svg" alt="VeriCode Logo" width="150"/><h1>VeriCode</h1></div>
+# <div align="center"><img src="public/vericode.png" alt="VeriCode Logo" width="150"/><h1>VeriCode</h1></div>
 
 <div align="center">
 
