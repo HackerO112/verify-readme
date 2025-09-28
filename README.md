@@ -342,7 +342,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by the VeriCode team**
 
-[![x](https://upload.wikimedia.org/wikipedia/commons/b/b7/X_logo.jpg-@thinkgenious-black?style=for-the-badge&logo=twitter)](https://twitter.com/vericode)
-[![Discord](https://img.shields.io/badge/Discord-Join-purple?style=for-the-badge&logo=discord)](https://discord.gg/)
+[![X Follow](https://img.shields.io/badge/@thinkgenious-black?style=for-the-badge&logo=x)](https://x.com/@thinkgenious)
+[![Discord](https://img.shields.io/badge/Discord-Join-purple?style=for-the-badge&logo=discord)](https://discord.gg/WNC22caS)
 
 </div>
