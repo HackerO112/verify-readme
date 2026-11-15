@@ -8,7 +8,9 @@
 [![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Paste a URL. Get a freshness report. Sleep well.**
+**Paste a URL. Get a freshness report.**
+
+> **SECURITY WARNING — local/trusted use only.** This version executes fetched Python snippets and installs their packages as the same operating-system user running Streamlit. A virtualenv and proxy settings are not a security sandbox. Do not expose this app publicly or scan untrusted URLs until a hardened container/OS sandbox and SSRF protections are implemented.
 
 VeriCode scrapes docs for Python snippets, spins up a throwaway virtualenv with the
 **latest** versions of every third-party package, runs each snippet, and tells you
@@ -36,7 +38,7 @@ That's it. A browser tab opens. Drop in a URL. Watch the magic.
 ```
 ┌─────────────┐     ┌──────────────────┐     ┌─────────────────┐     ┌──────────────┐
 │   URL Input  │────▶│  Scrape & Parse  │────▶│  Resolve Deps   │────▶│  Execute in  │
-│             │     │  <pre> blocks    │     │  AST → PyPI     │     │  throwaway   │
+│             │     │  <pre> blocks    │     │  AST → PyPI     │     │  host venv   │
 └─────────────┘     │  >>> → script    │     │  latest versions│     │  virtualenv  │
                     └──────────────────┘     └─────────────────┘     └──────┬───────┘
                                                                             │
@@ -70,11 +72,12 @@ That's it. A browser tab opens. Drop in a URL. Watch the magic.
 - `pip install` lines found on the page are used as a secondary signal.
 - Latest version numbers are pulled live from the **PyPI JSON API**.
 
-### 3. Execute — *clean room, every time*
+### 3. Execute — *temporary virtualenv, not an OS sandbox*
 - One cached virtualenv **per unique dependency set**.
-- `pip install --upgrade` to guarantee *latest* packages.
-- Snippet runs as a subprocess in a temp `cwd` with its own timeout.
-- 🌐 **Network blocked by default** — toggle in the sidebar if needed.
+- `pip install --upgrade` runs under the Streamlit host user and may execute package build/install code.
+- Snippets run as host-user subprocesses in a temporary working directory with a timeout.
+- The default proxy setting is only a convenience; it does **not** block raw sockets, alternate protocols, or direct IP connections.
+- **No filesystem, process, memory, CPU, or OS-level network isolation is provided.**
 
 ### 4. Diagnose — *not just "it failed"*
 
@@ -104,8 +107,7 @@ Docs often show `import x` once, then omit it in later snippets. Two modes fix t
 
 ## ⚠️ Caveats
 
-> **Security first.** Snippets execute as your local user in a temp directory.
-> Only scan sources you trust.
+ > **Security first.** This application is not safe for multi-user/public deployment in its current form. Snippets and dependency installation execute with the host application's user privileges. Only use it locally with trusted documentation and packages.
 
 - Very heavy dependencies (`torch`, `tensorflow`, `jax`, …) are **skipped** rather than installed — nobody has time for that.
 - Snippets that mutate global state or depend on a specific file tree will fail even if the code is "fresh" — this is by design.
